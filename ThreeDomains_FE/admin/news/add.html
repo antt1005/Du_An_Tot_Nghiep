@@ -1,0 +1,25 @@
+<h3> Thêm Tin Tức</h3>
+<div>
+<div class="row">
+    <div class="col-md-3">
+        <div>Ảnh đại diện tin tức <span class="vaid">*</span></div>
+        <img style="height: 200px;width: 200px;" id="output"/>
+        <button onclick="anhOpen()" style="border-radius: 10px;margin-top: 5px; background-color: rgb(23, 146, 82);color: white;border: none;padding: 5px;" id="uploadButtonImage">Chọn ảnh</button>
+        <input file-model="image" id="fileUpload" type="file" accept="image/*" onchange="loadFile1(event)" style="display: none;">
+
+    </div>
+    <div class="col-md-9">
+        <label>Tiêu Đề</label>
+        <input style="width: 850px;" class="haninput" ng-model="form.title">
+        <label>Nội Dung</label>
+        <textarea ck-editor ng-model="form.content"></textarea>
+
+ 
+       <div style="padding-top: 20px;">
+        <button ng-click="add()" class="btn btn-dark">Thêm</button>
+       </div>
+    </div>
+</div>
+</div>
+
+

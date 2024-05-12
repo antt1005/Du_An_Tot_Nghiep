@@ -1,0 +1,82 @@
+<h3>Thống Kê</h3>
+<div class="row">
+    <div class="col-md-4">
+        <div class="salestk">
+            <p class="labeltk">Doanh số hôm nay</p>
+            <p class="amounttk">{{ngay.soLuong}} đơn hàng / {{ngay.doanhThu == null ? 0 : ngay.doanhThu | currency:'':0}} VNĐ</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="salestk">
+            <p class="labeltk">Doanh số tháng này</p>
+            <p class="amounttk">{{thang.soLuong}} đơn hàng / {{thang.doanhThu == null ? 0 : thang.doanhThu | currency:'':0}} VNĐ</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="salestk">
+            <p class="labeltk">Số lượng đã bán tháng này</p>
+            <p class="amounttk">{{slthang.soLuong}}</p>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <br>
+        <h5>Biểu Đồ Thống Kê</h5>
+        <div style="display: inline-flex;">
+            <span style="padding: 5px;">Từ ngày</span>
+            <input type="date" id="tungay" class="haninput" style="width: 200px;">
+            <span style="padding: 5px;">Đến ngày</span>
+            <input type="date" id="denngay" class="haninput" style="width: 200px;">
+          
+        </div>
+        <div class="custom-radio">
+            <input type="radio" id="hoadon" name="radio-group1" checked>
+            <label for="hoadon">Hóa đơn</label>
+            <input type="radio" id="sanpham" name="radio-group1">
+            <label for="sanpham">Sản phẩm</label>
+            </div>
+        <div style="padding-top: 10px;">
+            <button ng-click="thongKe()" class="btn btn-dark">Thống kê</button>
+        </div>
+        <div style="display: none;padding: 5px; font-weight: bold;" id="tkhd">
+            Tổng số lượng chờ xác nhận : {{hdstatus[0].numberOfBillsStatus0}} <br>
+            Tổng số lượng chờ chờ giao : {{hdstatus[0].numberOfBillsStatus1}}<br>
+            Tổng số lượng chờ đang giao : {{hdstatus[0].numberOfBillsStatus2}}<br>
+            Tổng số lượng chờ đã giao : {{hdstatus[0].numberOfBillsStatus3}}<br>
+            Tổng số lượng chờ đã hủy : {{hdstatus[0].numberOfBillsStatus4}}
+        </div>
+        <div style="display: none;padding: 5px; font-weight: bold;" id="tksp">
+            Tổng số lượng đã bán : {{tongSL}}<br>
+            Tổng doanh thu : {{tongDT | currency:'':0}} VNĐ
+        </div>
+       
+        <canvas id="myChart" width="400" height="200"></canvas>
+    </div>
+    
+   
+    <h5 style="margin-top: 20px;">Trạng Thái Đơn Hàng</h5>
+    <div class="col-md-4">
+       
+        <canvas id="myChart1" width="150" height="150"></canvas>
+    </div>
+    <div class="col-md-8">
+    
+        <h5>TOP 5 Sản Phẩm Bán Chạy</h5>
+        <table class="table">
+            <tr>
+                <td>#</td>
+                <td>Sản Phẩm</td>
+                <td>Số lượng đã bán</td>
+                <td>Doanh thu</td>
+            </tr>
+            <tr ng-repeat="sp in pagerProductSold.items">
+                <td> {{$index + 1}}</td>
+                <td>
+                    <img style="width: 50px;height: 50px;" src="{{sp.url}}">
+                    {{sp.name}}
+                </td>
+                <td>{{sp.soLuong}}</td>
+                <td>{{sp.doanhThu | currency:'':0}} VNĐ</td>
+            </tr>
+        </table>
+    </div>
+</div>

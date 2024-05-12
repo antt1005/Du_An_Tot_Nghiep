@@ -1,0 +1,135 @@
+</div>
+<h3>Thêm Khuyến Mãi</h3>
+</div>
+
+<form class="form-control">
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6" style="margin-top: 30px;">
+                <label>Mã khuyến mãi <span class="vaid">*</span></label> <input class="haninput" ng-model="form.code">
+                <div ng-repeat="err in validationErrors">
+                    <span class="validate" ng-if="err.objectName == 'voucherRequest' && err.field == 'Code'">
+                        {{err.defaultMessage}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6" style="margin-top: 30px;">
+                <label>Tên khuyến mãi <span class="vaid">*</span></label> <input class="haninput"  ng-model="form.name">
+                <div ng-repeat="err in validationErrors">
+                    <span class="validate" ng-if="err.objectName == 'voucherRequest' && err.field == 'Name'">
+                        {{err.defaultMessage}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6"  style="margin-top: 15px;" >
+                <label>Loại khuyến mãi <span class="vaid">*</span></label>
+                <div class=" custom-radio">
+                    <input type="radio" value="false" ng-model="form.isVoucher" checked id="giamtheobill" ng-click="appear()" />
+                    <label for="giamtheobill">Giảm giá theo tổng bill</label>
+                    <input type="radio" value="true" ng-model="form.isVoucher" id="giamtheosp" ng-click="appear()" />
+                    <label for="giamtheosp">Giảm giá theo sản phẩm</label>
+                    <br>
+                    <div class=" custom-radio" id="123" >
+                        <br>
+                        <input  type="radio" value="true" ng-model="form.typeVoucher" id="giamphantram"  />
+                        <label ng-click="check()" for="giamphantram">Giảm giá theo %</label>
+                        <input  type="radio" value="false" ng-model="form.typeVoucher" id="giamtienmat" />
+                        <label ng-click="check()" for="giamtienmat">Giảm giá theo tiền mặt</label>
+                    </div>
+                </div>
+                <div ng-repeat="err in validationErrors">
+                    <span class="validate" ng-if="err.objectName == 'voucherRequest' && err.field == 'IsVoucher'">
+                        {{err.defaultMessage}}
+                    </span>
+                </div>
+            </div>
+            <!-- <div class="col-md-6"  style="margin-top: 15px;" >
+                <label>Loại khuyến mãi <span class="vaid">*</span></label>
+                <div class=" custom-radio">
+                    <br>
+                    <input type="radio" value="true" ng-model="form.typeVoucher" checked id="giamtheobill" ng-click="appear()" />
+                    <label for="giamtheobill">Giảm giá theo tổng bill</label>
+                    <div class=" custom-radio" style="display: none;" id="123" >
+                        <br>
+                        <input  type="radio" value="true" ng-model="form.isVoucher" id="giamphantram" checked />
+
+                        <label ng-click="check()" for="giamphantram">Giảm giá theo %</label>
+                        <input  type="radio" value="false" ng-model="form.isVoucher" id="giamtienmat" />
+                        <label ng-click="check()" for="giamtienmat">Giảm giá theo tiền mặt</label>
+                    </div>
+                    <br>
+                    <input type="radio" value="false" ng-model="form.typeVoucher" checked id="giamsanpham"  />
+                    <label for="giamtheobill">Giảm giá theo từng sản phẩm</label>
+                    <div ng-repeat="err in validationErrors">
+                        <span class="validate" ng-if="err.objectName == 'voucherRequest' && err.field == 'isVoucher'">
+                            {{err.defaultMessage}}
+                        </span>
+                    </div>
+                </div>
+            </div> -->
+            <div class="col-md-6" style="margin-top: 30px; display: none;" id="km">
+                <label>Khuyến mãi theo % <span class="vaid">*</span></label> 
+
+                <input class="haninput" ng-model="form.discount" >
+                <div ng-repeat="err in validationErrors">
+                    <span class="validate" ng-if="err.objectName == 'voucherRequest' && err.field == 'Discount'">
+                        {{err.defaultMessage}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6" style="margin-top: 30px;  display: none; " id="km1">
+                <label>Khuyến mãi theo tiền <span class="vaid">*</span></label> 
+                <input  class="haninput" ng-model="form.cash">
+                <div ng-repeat="err in validationErrors">
+                    <span class="validate" ng-if="err.objectName == 'voucherRequest' && err.field == 'Cash'">
+                        {{err.defaultMessage}}
+                    </span>
+                </div>
+            </div>
+            <!-- <div class="col-md-12" style="margin-top: 30px;"> -->
+                <!-- <label>Ngày bắt đầu</label> <input style="width: 200px;" ng-model="form.startdate"> -->
+                <!-- <label>Hóa đơn được áp dụng <span class="vaid">*</span></label> 
+                <input type="number" class="haninput"  ng-model="form.minimum" id="minimun">
+                <div ng-repeat="err in validationErrors">
+                    <span class="validate" ng-if="err.objectName == 'voucherRequest' && err.field == 'Minimum'">
+                        {{err.defaultMessage}}
+                    </span>
+                </div>
+            </div> -->
+            <div class="col-md-6" style="margin-top: 30px;">
+                <!-- <label>Ngày bắt đầu</label> <input style="width: 200px;" ng-model="form.startdate"> -->
+                <label>Ngày bắt đầu <span class="vaid">*</span></label> 
+                <input type="date" class="haninput"  ng-model="form.startdate" id="ngaybatdau">
+                <div ng-repeat="err in validationErrors">
+                    <span class="validate" ng-if="err.objectName == 'voucherRequest' && err.field == 'StartDate'">
+                        {{err.defaultMessage}}
+                    </span>
+                </div>
+            </div>
+            
+            <div class="col-md-6" style="margin-top: 30px;">
+                <label>Ngày hết hạn <span class="vaid">*</span></label>
+                 <input type="date" class="haninput"  ng-model="form.enddate" id="ngayhethan">
+                <div ng-repeat="err in validationErrors">
+                    <span class="validate" ng-if="err.objectName == 'voucherRequest' && err.field == 'EndDate'">
+                        {{err.defaultMessage}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div style="padding-top: 30px;">
+    <!--                <button style="margin-right: 10px"  class="btn btn-info" ng-click="reset()"><i class="fa-solid fa-rotate-right"></i> Reset</button>-->
+    <button class="btn btn-danger" ng-click="add()"><i class="fa-solid fa-plus"></i> Thêm</button>
+   <a href="#/voucher/view"> <button class="btn btn-warning">Back</button></a>
+</div>
+
+</div>
+</div>
+</div>
+</form>
+

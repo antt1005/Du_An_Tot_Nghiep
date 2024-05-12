@@ -1,0 +1,233 @@
+<aside class="left-sidebar">
+  <!-- Sidebar scroll-->
+  <div>
+    <div class="brand-logo d-flex align-items-center justify-content-between">
+      <a href="./index.html" class="text-nowrap logo-img">
+        <img src="../assets/images/logo.png" width="180" alt="" />
+      </a>
+      <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+        <i class="ti ti-x fs-8"></i>
+      </div>
+    </div>
+    <!-- Sidebar navigation-->
+    <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+      <ul id="sidebarnav">
+        <li class="nav-small-cap">
+          <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+          <span class="hide-menu">Home</span>
+        </li>
+        <li class="sidebar-item" ng-if="user.role.id === 1">
+          <a class="sidebar-link" href="#/statistical" aria-expanded="false">
+            <span>
+              <img style="width: 25px;height: 25px;" src="../../assets/images/statistics.png">
+            </span>
+            <span class="hide-menu">Thống Kê</span>
+          </a>
+        </li>
+        <li class="nav-small-cap">
+          <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+          <span class="hide-menu">Sản Phẩm</span>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#/products/view" aria-expanded="false">
+                <span>
+                  <img style="width: 30px;height: 30px;" src="../../assets/images/sport-shoe.png">
+                </span>
+            <span class="hide-menu">Quản Lý Giày</span>
+          </a>
+        </li>
+        <li  ng-click="menu()">
+          <button class="nav-small-cap" style="border: none;background-color: white;">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">Thuộc Tính Sản Phẩm </span>
+            <span style="padding-left: 45px;" ng-if="submenu === false"><i class="fa-solid fa-chevron-right"></i></span>
+            <span style="padding-left: 40px;" ng-if="submenu === true"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+        </li>
+       <div ng-if="submenu === true">
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#/categorys/view" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+            <span>Danh Mục</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#/brands/view" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+            <span>Thương Hiệu</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#/designs/view" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+            <span>Thiết Kế</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#/toes/view" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+            <span>Mũi Giày</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#/soles/view" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+            <span>Đế Giày</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#/shoelaces/view" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+            <span>Dây Giày</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#/heelcushions/view" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+            <span>Lót Giày</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#/materials/view" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+            <span>Chất Liệu</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#/colors/view" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+            <span>Màu Sắc</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#/sizes/view" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+            <span>Kích Thước</span>
+          </a>
+        </li>
+       </div>
+      <div ng-if="user.role.id === 1">
+        <li class="nav-small-cap">
+          <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+          <span class="hide-menu">Nhân Viên</span>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#/employee/view" aria-expanded="false">
+                <span>
+                  <i class="fa-solid fa-user-tie"></i>
+                </span>
+            <span class="hide-menu">Quản Lý Nhân Viên</span>
+          </a>
+        </li>
+      </div>
+        <!-- <li class="sidebar-item">
+          <a class="sidebar-link" href="#/role/view" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+            <span>Vai Trò</span>
+          </a>
+        </li> -->
+        <li class="nav-small-cap">
+          <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+          <span class="hide-menu">Khách Hàng</span>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#/customer/view" aria-expanded="false">
+                <span>
+                  <i class="fa-solid fa-user"></i>
+                </span>
+            <span class="hide-menu">Quản Lý Khách Hàng</span>
+          </a>
+        </li>
+        <li class="nav-small-cap">
+          <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+          <span class="hide-menu">Đơn Hàng</span>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#/sell/view" aria-expanded="false">
+                <span>
+                  <i class="fa-brands fa-shopify"></i>
+                </span>
+            <span class="hide-menu">Bán Hàng Tại Quầy</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#/bill/view" aria-expanded="false">
+                <span>
+                  <i class="fa-solid fa-receipt"></i>
+                </span>
+            <span class="hide-menu">Quản Lý Hóa Đơn</span>
+          </a>
+        </li>
+        <!-- <li class="sidebar-item">
+          <a class="sidebar-link" href="/admin/index.html#/return-ex" aria-expanded="false">
+                <span>
+                  <i class="fa-solid fa-right-left"></i>
+                </span>
+            <span class="hide-menu">Quản Lý Đổi Trả</span>
+          </a>
+        </li> -->
+        <div ng-if="user.role.id === 1">
+        <li class="nav-small-cap">
+          <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+          <span class="hide-menu">Khuyến Mãi</span>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#/voucher/view" aria-expanded="false">
+                <span>
+                  <i class="fa-solid fa-gift"></i>
+                </span>
+            <span class="hide-menu">Quản Lý Khuyến Mãi</span>
+          </a>
+        </li>
+      </div>
+      <div ng-if="user.role.id === 1">
+        <li class="nav-small-cap">
+          <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+          <span class="hide-menu">Hệ Thống</span>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#/news" aria-expanded="false">
+                <span>
+                  <i class="fa-solid fa-newspaper"></i>
+                </span>
+            <span class="hide-menu">Quản Lý Tin Tức</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#/banner" aria-expanded="false">
+                <span>
+                  <i class="fa-solid fa-bars-progress"></i>
+                </span>
+            <span class="hide-menu">Quản Lý Banner</span>
+          </a>
+        </li>
+      </div>
+        
+      </ul>
+    </nav>
+    <!-- End Sidebar navigation -->
+  </div>
+  <!-- End Sidebar scroll-->
+</aside>
