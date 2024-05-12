@@ -1,0 +1,171 @@
+ <!--Body Content-->
+ <div id="page-content" style="margin-top: 100px;">
+    <!--Page Title-->
+    <div class="page section-header text-center">
+        <div class="page-title">
+            <div class="wrapper"><h1 class="page-width">Thông Tin Cá Nhân</h1></div>
+          </div>
+    </div>
+    <!--End Page Title-->
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div>
+                    <img id="output1" ng-if="anh == null" style="width: 200px;height: 200px;" src="./assets/images/cat-men.jpg">
+                    <img id="output1" ng-if="anh != null" style="width: 200px;height: 200px;" src="{{anh}}">
+                    <img id="output" style="display: none;width: 200px;height: 200px;"/>
+                   
+                </div>
+                <div style="padding-top: 5px;">
+                    <button onclick="anhOpen()" style="border-radius: 10px;margin-top: 5px; background-color: rgb(23, 146, 82);color: white;border: none;padding: 5px;" id="uploadButtonImage">Chọn ảnh</button>
+                    <input file-model="profile.image" id="fileUpload" type="file" accept="image/*" onchange="loadFile(event)" style="display: none;">
+                </div>
+                </div>
+            <div class="col-md-9">
+                <div class="mb-4">
+                      <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="FirstName">Tên tài khoản</label>
+                                <input ng-model="profile.username" type="text" name="customer[first_name]" placeholder="" id="FirstName" autofocus="" disabled>
+                                <div ng-repeat="err in validationErrors">
+                                    <span class="validate" ng-if="err.objectName == 'capNhatProfile' && err.field == 'Username'">
+                                       {{err.defaultMessage}}
+                                    </span>
+                                    </div>   
+                            </div>
+                           </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="FirstName">Tên đầy đủ</label>
+                                <input ng-model="profile.fullname" type="text" name="customer[first_name]" placeholder="" id="FirstName" autofocus="">
+                                <div ng-repeat="err in validationErrors">
+                                    <span class="validate" ng-if="err.objectName == 'capNhatProfile' && err.field == 'Fullname'">
+                                       {{err.defaultMessage}}
+                                    </span>
+                                    </div>   
+                            </div>
+                           </div>
+                           <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="FirstName">Số điện thoại</label>
+                                <input ng-model="profile.phone" type="text" name="customer[first_name]" placeholder="" id="FirstName" autofocus="">
+                                <div ng-repeat="err in validationErrors">
+                                    <span class="validate" ng-if="err.objectName == 'capNhatProfile' && err.field == 'Phone'">
+                                       {{err.defaultMessage}}
+                                    </span>
+                                    </div>   
+                            </div>
+                           </div>
+                           <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="FirstName">Email</label>
+                                <input type="email" ng-model="profile.email" type="text" name="customer[first_name]" placeholder="" id="FirstName" autofocus="">
+                                <div ng-repeat="err in validationErrors">
+                                    <span class="validate" ng-if="err.objectName == 'capNhatProfile' && err.field == 'Email'">
+                                       {{err.defaultMessage}}
+                                    </span>
+                                    </div>   
+                            </div>
+                           </div>
+                           <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="FirstName">Giới tính</label>
+                              
+                                <div>
+                                    <input id="gtNam"  name="gioitinh" type="radio"
+                                    value="true"  {{form.gender = true ? 'checked' : ''}}> Nam <input id="gtNu" name="gioitinh" type="radio" value="false" {{form.gender = false ? 'checked' : ''}}>Nữ
+                                </div>
+                              
+                            </div>
+                           </div>
+                          
+                        
+                          
+                    
+                      </div>
+                      <div class="row">
+                        <div class="text-center col-12 col-sm-12 col-md-12 col-lg-12">
+                            <button ng-click="update()" class="btn btn-dark">Cập Nhật</button>
+                          
+                        </div>
+                     </div>
+               
+                </div>
+               </div>
+        </div>
+    </div>
+      <!--Page Title-->
+      <div class="page section-header text-center">
+        <div class="page-title">
+            <div class="wrapper"><h1 class="page-width">Địa Chỉ Giao Hàng</h1></div>
+          </div>
+    </div>
+    <!--End Page Title-->
+   <div class="container">
+    <button class="btn btn-dark" ng-click="themDiaChi()"><i class="fa-solid fa-map-location-dot"></i> Thêm địa chỉ mới</button>
+    <table class="table">
+<tr>
+    <td>#</td>
+    <td>Người nhận</td>
+    <td>Địa chỉ giao</td>
+    <td>Số điện thoại</td>
+    <td>Hành động</td>
+</tr>
+<tr ng-repeat="add in listAddress">
+<td>{{$index + 1}}</td>
+<td>{{add.fullname}}</td>
+<td>{{add.address}}, {{add.wardName}}, {{add.districtName}}, {{add.cityName}}</td>
+<td>{{add.phone}}</td>
+<td>
+    <button ng-click="delete(add.id)">Xóa</button>
+</td>
+</tr>
+    </table>
+   </div>
+    
+</div>
+<!--End Body Content-->
+
+<div class="popup" ng-class="{ 'show': isDiaChi }">
+    <div class="popup-content2">
+      <!-- Nội dung của popup -->
+      <h1>Thêm địa chỉ </h1>
+      <div class="row">
+        <div class="col-md-12 ">
+          <label>Tên người nhận <span class="vaid">*</span></label> <input class="haninput" id="tennguoimua">
+       
+        </div>
+        <div class="col-md-12 ">
+            <label>SĐT người nhận <span class="vaid">*</span></label> <input class="haninput" id="sodienthoai">
+           
+          </div>
+          <div class="col-md-12 ">
+            <label>Tỉnh/Thành <span class="vaid">*</span></label>  <select class="form-control" id="tinh" ng-click="getHuyen();getXa()">
+                <option ng-repeat="tinh in listTinh" value="{{tinh.ProvinceID}}">{{tinh.ProvinceName}}</option>
+            </select>
+           
+          </div>
+          <div class="col-md-12 ">
+            <label>Quận/Huyện <span class="vaid">*</span></label>  <select class="form-control" id="huyen" ng-click="getXa()">
+                <option ng-repeat="huyen in listHuyen" value="{{huyen.DistrictID}}">{{huyen.DistrictName}}</option>
+            </select>
+          </div>
+          <div class="col-md-12 ">
+            <label>Phường/Xã <span class="vaid">*</span></label>  <select class="form-control" id="xa">
+                <option ng-repeat="xa in listXa" value="{{xa.WardCode}}">{{xa.WardName}}</option>
+            </select>
+          </div>
+        <div class="col-md-12 ">
+          <label>Địa chỉ cụ thể </label> <textarea class="haninput1" id="diachicuthe"></textarea>
+         
+        </div>
+   <div style="padding-top: 10px;">
+    <button class="btn btn-primary" ng-click="themDiaChi()">X</button>
+    <button class="btn btn-dark" ng-click="addDiaChi()">Thêm</button>
+   </div>
+  
+     </div>
+    </div>
+  </div>

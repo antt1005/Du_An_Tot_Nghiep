@@ -1,0 +1,91 @@
+  <!--Body Content-->
+  <div id="page-content" style="padding-top: 100px;">
+    <!--Page Title-->
+    <div class="page section-header text-center">
+    <div class="page-title">
+          <div class="wrapper"><h1 class="page-width">Tin Tức</h1></div>
+        </div>
+  </div>
+      <!--End Page Title-->
+      
+      <div class="container">
+        <div class="grid-products">
+          <div class="row">
+            <div ng-repeat="new in pagerNew.items" class="col-6 col-sm-6 col-md-3 col-lg-3 item grid-view-item style2">
+              <div class="grid-view_image">
+                <!-- start product image -->
+                <a href="#/news/{{new.key}}" class="grid-view-item__link">
+                  <img style="height: 300px;" class="grid-view-item__image primary blur-up lazyload"  src="{{new.value.image}}" alt="{{new.value.title}}" title="{{new.value.title}}">
+                  <!-- End image -->
+                  <img style="height: 300px;" class="grid-view-item__image hover blur-up lazyload"  src="{{new.value.image}}" alt="{{new.value.title}}" title="{{new.value.title}}">
+                    <!-- End image -->
+                      
+                  
+                    <!-- product label -->
+            
+                  <!-- End product label -->
+                </a>
+                <!-- end product image -->
+                <!--start product details -->
+                <div class="product-details hoverDetails text-center mobile">
+                
+                  
+                  <!-- product button -->
+                  <div class="button-set">
+                    
+                    <div class="btn">
+                      <a href="#/news/{{new.key}}">
+                        Đọc ngay
+                      </a>
+                    </div>
+                    
+                  </div>
+                  <!-- end product button -->
+                </div>
+                  <!-- product name -->
+                  <div class="product-name">
+                    <a href="#/news/{{new.key}}"><h3>{{new.value.title}}</h3></a>
+                  </div>
+                  <!-- End product name -->
+                  <!-- product price -->
+                  
+                  <!-- <div class="product-review">
+                    <i class="font-13 fa fa-star"></i>
+                    <i class="font-13 fa fa-star"></i>
+                    <i class="font-13 fa fa-star"></i>
+                    <i class="font-13 fa fa-star-o"></i>
+                    <i class="font-13 fa fa-star-o"></i>
+                  </div> -->
+                  <!-- End product price -->
+                <!-- Variant -->
+                <!-- <ul class="swatches text-center" ng-repeat="img in sp.product.productImages">
+                  <li class="swatch medium rounded"><img style="height: 50px;" src="{{img.url}}" alt="image" /></li>
+    
+                </ul> -->
+                <!-- End Variant -->
+                <!-- End product details -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center" ng-if="listN.length > 0">
+          <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <button ng-click="pagerNew.first()" type="button"
+                    class="btn btn-outline-secondary"><i class="fa-solid fa-angles-left"></i></button>
+            <button ng-click="pagerNew.prev()" type="button"
+                    class="btn btn-outline-secondary"><i class="fa-solid fa-angle-left"></i></button>
+            <button type="button" class="btn btn-outline-secondary">{{pagerNew.page+1}}
+              of
+              {{pagerNew.count}}</button>
+            <button ng-click="pagerNew.next()" type="button"
+                    class="btn btn-outline-secondary"><i class="fa-solid fa-angle-right"></i></button>
+            <button ng-click="pagerNew.last()" type="button"
+                    class="btn btn-outline-secondary"><i class="fa-solid fa-angles-right"></i></button>
+          </div>
+        </div>
+      
+          
+      </div>
+      
+  </div>
+  <!--End Body Content-->
